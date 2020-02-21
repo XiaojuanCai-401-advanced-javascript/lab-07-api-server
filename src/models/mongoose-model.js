@@ -13,9 +13,10 @@ class Model {
   }
 
   read(id){
-  
-    let query = id ? {_id: id} : {};
-    return this.schema.find(query);
+    if (id) {
+      return this.schema.findById(id);
+    }
+    return this.schema.find({});
   }
 
   update(id, record){

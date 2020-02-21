@@ -6,13 +6,16 @@ const app = express();
 // middleware
 const logger = require('./middleware/logger');
 const timestamps = require('./middleware/timestamp');
-const productRouter = require('./api/product-router');
-const categoryRouter = require('./api/category-router');
+const router = require('./api/router');
+// const productRouter = require('./api/product-router');
+// const categoryRouter = require('./api/category-router');
 app.use(express.json());
 app.use(timestamps);
 app.use(logger);
-app.use(productRouter);
-app.use(categoryRouter);
+
+app.use(router)
+// app.use(productRouter);
+// app.use(categoryRouter);
 
 module.exports = {
   server: app,
